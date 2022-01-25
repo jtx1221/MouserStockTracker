@@ -1,7 +1,16 @@
 from urllib import request
 import click
 import json
+import pandas as pd
 from modified_api import  MouserPartSearchRequest
+
+
+df = pd.read_excel(r'C:\Users\HaylesJ\Documents\GitHub\MouserStockTracker\test_data.xlsx','Sheet1')
+rows, columns =df.shape
+ for i, row in df
+
+
+
 
 # API Keys File (Default)
 API_KEYS_FILE = 'mouser_api_keys.yaml'
@@ -31,5 +40,8 @@ def test(request_type, operation, number):
     return a
 
 
-b=test('search','partnumber','581-SCPB08A355SNA')
-print(b)
+
+
+
+#b=test('search','partnumber','581-SCPB08A355SNA')
+#print(b)
