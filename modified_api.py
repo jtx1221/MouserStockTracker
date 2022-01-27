@@ -41,7 +41,6 @@ class MouserPartSearchRequest(MouserBaseRequest):
 
     def print_clean_response(self):
         response_data = self.get_clean_response()
-        #print(json.dumps(response_data, indent=4, sort_keys=True))
         return response_data
 
     def get_body(self, **kwargs):
