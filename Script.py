@@ -16,6 +16,7 @@ def testscript():
     a = []
     fg =[]
     t=[]
+    t2=[]
 
 
 
@@ -41,10 +42,12 @@ def testscript():
     #iterating test function with part nums
     for i ,  row in df.iterrows():
         a = test(b[i])
+        #print(a)
     
         c= a.values()
         d=  list(c)
         fg.append(d)
+        
 
 
 
@@ -60,25 +63,28 @@ def testscript():
 
     df_result['Avaliablity'] = df_result['Avaliablity'].map(lambda x: x.rstrip('In Stock'))
    
-    df_result['Avaliablity'] = pd.to_numeric(df_result['Avaliablity'])
+    
     temp = df_result['Avaliablity']
-    lit =[]
+    
     for i, row in df_result.iterrows():
-        
-        if temp[i]>0:
-            ti=dt.datetime.now()
-            dat=ti[0:10]
+        ti= str( dt.datetime.now())
+        dat=ti[0:10]
+        tim= ti[11:16]
+            
+        if temp[i] =="None":
+            t.append(0)
+            t2.append(0)
             
 
-            t.append(str(ti))
+           
         else:
-            t.append(0)
+            t.append(str(dat))
+            t2.append(str(tim))
 
-    df_result['Time'] = t
-      
-    print(df_result)
-
+    df_result['Date'] = t
+    df_result['Time'] = t2
+    
 
     #Output stock levels to CSV file
-    #df_result.to_csv('Stock_data.csv')
+    df_result.to_csv('Stock_data.csv')
 testscript()    
